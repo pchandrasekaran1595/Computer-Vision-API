@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  app:
+    image: ${DOCKER_USERNAME}/cv-api:1.0
+    ports:
+      - "10000:10000"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
