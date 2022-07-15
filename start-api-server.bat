@@ -1,0 +1,1 @@
+start /MAX cmd /k "title RUN && cd venv/Scripts && activate && cd .. && cd .. && cls && uvicorn main:app --reload --port 10000"

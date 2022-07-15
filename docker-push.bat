@@ -1,0 +1,1 @@
+start /MAX cmd /c "cls && title Push to Dockerhub && docker push %DOCKER_USERNAME%/cv-api:1.0 && timeout /t 5 /nobreak"
