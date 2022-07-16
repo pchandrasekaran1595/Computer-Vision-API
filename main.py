@@ -108,7 +108,7 @@ async def post_detect_infer(image: Image):
         })
     else:
         return JSONResponse({
-            "statusText" : "Inference Failed",
+            "statusText" : "No Detections",
             "statusCode" : 500,
         })
 
