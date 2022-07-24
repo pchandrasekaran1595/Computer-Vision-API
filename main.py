@@ -66,6 +66,15 @@ async def get_detect_infer():
     })
 
 
+@app.get("/face")
+async def get_face_detect_infer():
+    return JSONResponse({
+        "statusText" : "Face Detection Inference Endpoint",
+        "statusCode" : 200,
+        "version" : VERSION,
+    })
+
+
 @app.get("/segment")
 async def get_segment_infer():
     return JSONResponse({
@@ -105,6 +114,30 @@ async def post_detect_infer(image: Image):
             "label" : label,
             "score" : str(score),
             "box" : box,
+        })
+    else:
+        return JSONResponse({
+            "statusText" : "No Detections",
+            "statusCode" : 500,
+        })
+
+
+@app.post("/face")
+async def post_face_detect_infer(image: Image):
+    _, image = decode_image(image.imageData)
+
+    model = Model(infer_type="face")
+    face_detections_np = model.infer(image)
+
+    if len(face_detections_np) > 0:
+        face_detections: list = []
+        for (x, y, w, h) in face_detections_np:
+            face_detections.append([int(x), int(y), int(w), int(h)])
+        
+        return JSONResponse({
+            "statusText" : "Face Detection Complete",
+            "statusCode" : 200,
+            "face_detections" : face_detections,
         })
     else:
         return JSONResponse({

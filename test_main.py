@@ -44,6 +44,16 @@ def test_get_detect_infer():
     }
 
 
+def test_get_face_detect_infer():
+    response = client.get("/face")
+    assert response.status_code == 200
+    assert response.json() == {
+        "statusText" : "Face Detection Inference Endpoint",
+        "statusCode" : 200,
+        "version" : VERSION,
+    }
+
+
 def test_get_segment_infer():
     response = client.get("/segment")
     assert response.status_code == 200

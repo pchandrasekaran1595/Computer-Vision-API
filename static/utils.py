@@ -37,6 +37,9 @@ class Model(object):
             self.labels: dict = json.load(open("static/labels_seg.json", "r"))
             self.MEAN: list = [0.485, 0.456, 0.406]
             self.STD: list  = [0.229, 0.224, 0.225]
+        
+        elif re.match(r"^face$", self.infer_type, re.IGNORECASE):
+            self.model = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     
     def setup(self):
         model = onnx.load(self.path)
@@ -120,6 +123,11 @@ class Model(object):
                 if index != 0:
                     detected_labels.append(self.labels[str(index)].title())
             return disp_image, detected_labels
+        
+        elif re.match(r"^face$", self.infer_type, re.IGNORECASE):
+            temp_image = cv2.cvtColor(src=image.copy(), code=cv2.COLOR_RGB2GRAY)
+            detections = self.model.detectMultiScale(image=temp_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30), flags=cv2.CASCADE_SCALE_IMAGE)
+            return detections
 
 #####################################################################################################
 
