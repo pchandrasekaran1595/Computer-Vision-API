@@ -21,6 +21,7 @@
 
 1. `/classify` - returns highest confidence prediction label
 2. `/detect` &nbsp;&nbsp;&nbsp; - returns highest confidence bounding box and associated label
+2. `/face` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - returns detection bounding boxes
 3. `/segment` &nbsp; - returns list of labels and base64 encoded image data
 
 <br>
