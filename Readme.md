@@ -11,7 +11,7 @@
 **OR**
 
 
-1. Pull the docker image using `docker pull pchandrasekaran1595/cv-api` (Uses Python-3.8)
+1. Pull the docker image using `docker pull pchandrasekaran1595/cv-api` or `docker pull prashanthacsq/cv-api` (Uses Python-3.8)
 2. Run `docker-run.bat`. 
 3. The API will now be served at `http://127.0.0.1:10000`
 
@@ -21,6 +21,7 @@
 
 1. `/classify` - returns highest confidence prediction label
 2. `/detect` &nbsp;&nbsp;&nbsp; - returns highest confidence bounding box and associated label
+2. `/face` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - returns detection bounding boxes
 3. `/segment` &nbsp; - returns list of labels and base64 encoded image data
 
 <br>
