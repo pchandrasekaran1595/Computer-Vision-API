@@ -1,0 +1,1 @@
+source venv/bin/activate && uvicorn main:app --host $(hostname -I) --port 4040 --workers 4
