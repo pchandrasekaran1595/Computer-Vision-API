@@ -1,1 +1,0 @@
-start /MAX cmd /c "title TEST-DOCKER && cls && docker run -d --name test-container -p 4040:4040 %DOCKER_USERNAME%/cv-api:1.0 && docker exec test-container pytest && docker stop test-container && docker container rm test-container && timeout /t 5 /nobreak"
