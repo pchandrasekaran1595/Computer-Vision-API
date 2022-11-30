@@ -2,6 +2,10 @@
 
 <br>
 
+[Render Deployment](https://cv-api-ybi2.onrender.com/)
+
+<br>
+
 1. API served on port `4040`
 2. `/classify` - returns highest confidence prediction label
 3. `/detect` &nbsp;&nbsp;&nbsp; - returns highest confidence bounding box and associated label
